@@ -16,7 +16,19 @@ async function getPokemon(offset, loadingButton = 'navigator') {
     id: parseInt(x.url.match(/pokemon\/\d+\//)[0].match(/[0-9]+/))
   }))
 
-  return { data: mapped, endReached: !res.next }
+  const detailed = await Promise.all(mapped.map(async x => ({
+    ...(await getDetails(x.id, loadingButton)),
+    ...x
+  })))
+
+  return { data: detailed, endReached: !res.next }
+}
+
+async function getDetails(id, loadingButton) {
+  const data = await Api.get(`/pokemon/${id}`, {}, loadingButton)
+  if(!data) return {}
+
+  return { sprite: data.sprites?.front_default }
 }
 
 export default getPokemon

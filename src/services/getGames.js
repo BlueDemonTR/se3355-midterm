@@ -2,7 +2,7 @@ import { Api, capitalize } from 'lib'
 
 const PAGE_SIZE = 20
 
-async function getGames(offset, loadingButton = 'navigator') {
+async function getGames(offset, loadingButton) {
   const data = {
     limit: PAGE_SIZE,
     offset: offset ?? 0
@@ -16,7 +16,19 @@ async function getGames(offset, loadingButton = 'navigator') {
     id: parseInt(x.url.match(/version-group\/\d+\//)[0].match(/[0-9]+/))
   }))
 
-  return { data: mapped, endReached: !res.next }
+  const detailed = await Promise.all(mapped.map(async x => ({
+    ...(await getDetails(x.id, loadingButton)),
+    ...x
+  })))
+
+  return { data: detailed, endReached: !res.next }
+}
+
+async function getDetails(id, loadingButton) {
+  const data = await Api.get(`/version-group/${id}`, {}, loadingButton)
+  if(!data) return {}
+  
+  return { title: data.generation?.name.replace('generation-', '').toUpperCase() }
 }
 
 export default getGames

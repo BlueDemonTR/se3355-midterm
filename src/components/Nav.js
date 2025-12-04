@@ -16,7 +16,7 @@ const Nav = ({  }) => {
 
   return (
     <div
-      className='sticky w-screen h-header bg-slate-500 top-0 animate-fadeIn'
+      className='sticky w-screen h-header bg-slate-500 top-0 animate-fadeIn z-40'
     >
       {items.map(x => (
         <Button

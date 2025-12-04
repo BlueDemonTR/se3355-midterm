@@ -4,7 +4,7 @@ const FullScreenLoading = ({  }) => {
 
   return (
     <div
-      className='fixed w-screen h-screen bg-black/30 flex items-center justify-center z-50'
+      className='fixed w-screen h-screen bg-black/30 flex items-center justify-center z-50 animate-fadeIn'
     >
       <img 
         src={require('assets/pokeball.png')} 
