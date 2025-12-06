@@ -23,7 +23,7 @@ const setHeaders = async () => {
 
 // GLOBAL APIS
 const Api = {
-	async get(endpoint, params = {}, button) {
+	async get(endpoint = '', params = {}, button) {
 		await setHeaders()
 
 		store.dispatch({
@@ -31,7 +31,9 @@ const Api = {
 			payload: button
 		})
 
-		const apiUrl = `${API_URL}${endpoint}${buildURLParams(params)}`
+		const apiUrl = endpoint.startsWith('http')
+			?	`${endpoint}${buildURLParams(params)}`
+			: `${API_URL}${endpoint}${buildURLParams(params)}`
 
 		try {
 			const req = await axios.get(apiUrl)

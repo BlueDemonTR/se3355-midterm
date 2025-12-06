@@ -1,0 +1,73 @@
+import React, { useState } from 'react'
+import Box from './Box'
+import { reduceClass, textColors } from 'lib'
+import Text from './Text'
+
+const Collapsable = ({ title, content }) => {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <Box noFlex>
+      <div
+        className={reduceClass([
+          'bg-red-600',
+          'p-2',
+          'border-4',
+          'border-black',
+        ])}
+        onClick={() => setOpen(!open)}
+      >
+        <Text col={textColors.WHITE} bold>
+          {title}
+        </Text>
+      </div>
+
+      <div className={reduceClass([
+        'relative', 
+        !open && 'h-0', 
+        'w-full', 
+        'flex', 
+        'justify-center', 
+        'mb-2',
+      ])}>
+
+        <div
+          className={reduceClass([
+            'bg-gray-100',
+            'p-2',
+            'border-4',
+            'border-t-0',
+            'border-black',
+            'transition-all',
+            'origin-top',
+            'h-fit',
+            open ? 'scale-y-100' : 'scale-y-0',
+            open ? 'relative' : 'absolute',
+            'top-0',
+            'w-full',
+            'z-10'
+          ])}
+        >
+          {content}
+        </div>
+
+        <div 
+          className={reduceClass([
+            'bg-white',
+            'p-2',
+            'border-4',
+            'border-black',
+            'rounded-full',
+            'absolute',
+            'mx-auto',
+            'top-[-0.75rem]',
+            'z-20'
+          ])}
+        />
+
+      </div>
+    </Box>
+  )
+}
+
+export default Collapsable

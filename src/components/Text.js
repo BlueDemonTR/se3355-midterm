@@ -7,17 +7,21 @@ const Text = ({
   bold = false,
   med = false,
   taCenter,
+  italic,
   children
 }) => {
-  const classes = useMemo(generateClasses, [col, size, bold, med, taCenter])
+  const classes = useMemo(generateClasses, [italic, col, size, bold, med, taCenter])
 
   function generateClasses() {
     const classes = [col, size]
 
     if(taCenter) classes.push('text-center')
+    else classes.push('text-left')
 
     if(bold) classes.push('font-bold')
-    else if(med) classes.push('font-bold')
+    else if(med) classes.push('font-medium')
+
+    if(italic) classes.push('italic')
 
     return classes
   }

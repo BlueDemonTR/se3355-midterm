@@ -1,5 +1,5 @@
 function capitalize(str) {
-  const splitStr = str.toLowerCase().split(/[\s-]+/),
+  const splitStr = str.toLowerCase().split(/[\s-_]+/),
     newStr = []
 
   for (const str of splitStr) {

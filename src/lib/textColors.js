@@ -1,6 +1,7 @@
 const theme = {
   BLACK: 'text-black',
   WHITE: 'text-white',
+  GREY: 'text-gray-600',
   RED: 'text-red-700',
   ORANGE: 'text-orange-700',
   YELLOW: 'text-yellow-700',

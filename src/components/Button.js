@@ -19,6 +19,7 @@ const Button = ({ text, onClick, disabled, loadingButton }) => {
       className={reduceClass([
         'bg-white', 
         'hover:bg-blue-200', 
+        'active:bg-blue-300', 
         'disabled:hover:bg-white',
         'disabled:text-gray-500',
         'transition-colors',

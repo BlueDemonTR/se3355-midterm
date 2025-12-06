@@ -11,12 +11,13 @@ const Box = ({
   justifyBetween, 
   justifyCenter,
   grow,
-  alignCenter
+  alignCenter,
+  gap = 'gap-0'
 }) => {
-  const classes = useMemo(generateClasses, [vertical, noFlex, relative, fullW, fullH, justifyBetween, grow, alignCenter, justifyCenter])
+  const classes = useMemo(generateClasses, [gap, vertical, noFlex, relative, fullW, fullH, justifyBetween, grow, alignCenter, justifyCenter])
   
   function generateClasses() {
-    const classes = ['flex']
+    const classes = ['flex', gap]
 
     classes.push(vertical ? 'flex-row' : 'flex-col')
     classes.push(noFlex ? 'flex-none' : 'flex-1')

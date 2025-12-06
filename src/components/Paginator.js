@@ -3,14 +3,8 @@ import Box from './Box'
 import Button from './Button'
 import Text from './Text'
 
-const Paginator = ({ page, endReached, setPage: _setPage }) => {
+const Paginator = ({ page, endReached, setPage }) => {
   const hasPrev = page > 0
-
-  function setPage(val) {
-    console.log(page, val(page))
-
-    _setPage(val)
-  }
 
 
   return (

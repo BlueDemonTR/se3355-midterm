@@ -1,3 +1,6 @@
 export { default as getPokemon } from './getPokemon'
 export { default as getGames } from './getGames'
 export { default as getRegions } from './getRegions'
+export { default as getRegionDetails } from './getRegionDetails'
+export { default as getGameDetails } from './getGameDetails'
+export { default as getPokemonDetails } from './getPokemonDetails'
