@@ -14,6 +14,7 @@ const Collapsable = ({ title, content }) => {
           'p-2',
           'border-4',
           'border-black',
+          'cursor-pointer'
         ])}
         onClick={() => setOpen(!open)}
       >

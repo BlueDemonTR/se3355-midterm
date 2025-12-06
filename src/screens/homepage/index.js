@@ -1,12 +1,43 @@
-import { ContentArea } from 'components'
-import React, { useState } from 'react'
+import { ContentArea, Hypertext, Text, Title } from 'components'
+import { Api, textColors } from 'lib'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Homepage = ({  }) => {
+  const summary = useSelector(state => state.data?.summary),
+    dispatch = useDispatch()
+
+  async function getSummary() {
+    const res = await Api.get('https://en.wikipedia.org/api/rest_v1/page/summary/Pokemon', {}, 'navigator')
+    if(!res) return
+
+    dispatch({
+      type: 'SET_SUMMARY',
+      payload: res.extract
+    })
+  }
+
+  useEffect(() => {
+    getSummary()
+  }, [])
 
   return (
     <ContentArea>
-      homepage
+      <Title>
+        Pokémon Wiki
+      </Title>
 
+      <Text italic>
+        {summary} <br />
+        
+        <Text col={textColors.GREY} size='text-xs'>
+          - Summary pulled from Wikipedia
+        </Text>
+      </Text>
+
+      <Text>
+        In this wiki you can look over the many <Hypertext item={{ name: 'game generation', url: '/games' }} /> the series has, the <Hypertext item={{ name: 'regions', url: '/regions' }} /> in those areas and the namesake of the series, the <Hypertext item={{ name: 'Pokémon', url: '/pokemon' }} />.  
+      </Text>
     </ContentArea>
   )
 }

@@ -13,7 +13,8 @@ const Text = ({
       className={reduceClass([
         'text-blue-700',
         'hover:text-blue-500',
-        'underline'
+        'underline',
+        'cursor-pointer'
       ])}
       onClick={() => navigate(url)}
     >

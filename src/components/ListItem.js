@@ -24,7 +24,8 @@ const ListItem = ({ navigateTo, item }) => {
           'items-center',
           'transition-colors',
           'hover:bg-slate-100',
-          'hover:shadow-xl'
+          'hover:shadow-xl',
+          'cursor-pointer'
         ])
       }
       onClick={() => navigate(`/${navigateTo}/${id}`)}
