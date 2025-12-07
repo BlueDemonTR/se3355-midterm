@@ -13,7 +13,12 @@ const Root = () => (
 	<Provider store={store}>
 		<PersistGate persistor={persistor}>
 			<ErrRes/>
-			<Router>
+			<Router basename={
+				process.env.REACT_APP_ENVIRONMENT === 'production'
+					? 'https://bluedemontr.github.io/se3355-midterm/'
+					: ''
+				
+			}>
 				<Wiki />
 			</Router>
 		</PersistGate>
