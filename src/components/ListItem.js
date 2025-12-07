@@ -3,30 +3,16 @@ import Button from './Button'
 import Text from './Text'
 import { useNavigate } from 'react-router-dom'
 import Box from './Box'
-import { reduceClass } from 'lib'
+import { reduceClass, style } from 'lib'
 
 const ListItem = ({ navigateTo, item }) => {
   const { name, id, sprite, title } = item,
     navigate = useNavigate()
 
   return (
-    <div 
+    <button 
       className={
-        reduceClass([
-          'flex',
-          'flex-col',
-          'bg-white', 
-          'shadow-lg', 
-          'border-2', 
-          'rounded-lg', 
-          'flex-1', 
-          'justify-center', 
-          'items-center',
-          'transition-colors',
-          'hover:bg-slate-100',
-          'hover:shadow-xl',
-          'cursor-pointer'
-        ])
+        reduceClass(style.listItem)
       }
       onClick={() => navigate(`/${navigateTo}/${id}`)}
     >
@@ -43,7 +29,7 @@ const ListItem = ({ navigateTo, item }) => {
       <Text taCenter>
         {name}
       </Text>
-    </div>
+    </button>
   )
 }
 

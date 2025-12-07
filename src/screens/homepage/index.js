@@ -1,4 +1,4 @@
-import { ContentArea, Hypertext, Text, Title } from 'components'
+import { ContentArea, Hypertext, Section, Text, Title } from 'components'
 import { Api, textColors } from 'lib'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -27,17 +27,21 @@ const Homepage = ({  }) => {
         Pokémon Wiki
       </Title>
 
-      <Text italic>
-        {summary} <br />
-        
-        <Text col={textColors.GREY} size='text-xs'>
-          - Summary pulled from Wikipedia
+      <Section>
+        <Text italic>
+          {summary} <br />
+          
+          <Text col={textColors.GREY} size='text-xs'>
+            - Summary pulled from Wikipedia
+          </Text>
         </Text>
-      </Text>
+      </Section>
 
-      <Text>
-        In this wiki you can look over the many <Hypertext item={{ name: 'game generation', url: '/games' }} /> the series has, the <Hypertext item={{ name: 'regions', url: '/regions' }} /> in those areas and the namesake of the series, the <Hypertext item={{ name: 'Pokémon', url: '/pokemon' }} />.  
-      </Text>
+      <Section>
+        <Text>
+          In this wiki you can look over the many <Hypertext item={{ name: 'game generation', url: '/games' }} /> the series has, the <Hypertext item={{ name: 'regions', url: '/regions' }} /> in those areas and the namesake of the series, the <Hypertext item={{ name: 'Pokémon', url: '/pokemon' }} />.  
+        </Text>
+      </Section>
     </ContentArea>
   )
 }

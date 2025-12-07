@@ -14,10 +14,7 @@ const Root = () => (
 		<PersistGate persistor={persistor}>
 			<ErrRes/>
 			<Router basename={
-				process.env.NODE_ENV === 'production'
-					? 'https://bluedemontr.github.io/se3355-midterm/'
-					: ''
-				
+				process.env.PUBLIC_URL
 			}>
 				<Wiki />
 			</Router>

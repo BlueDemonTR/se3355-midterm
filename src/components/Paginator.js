@@ -8,7 +8,13 @@ const Paginator = ({ page, endReached, setPage }) => {
 
 
   return (
-    <Box vertical fullW justifyBetween noFlex>
+    <Box 
+      element='footer'
+      vertical 
+      fullW 
+      justifyBetween 
+      noFlex
+    >
       <Box>
         <Button 
           text='Previous' 

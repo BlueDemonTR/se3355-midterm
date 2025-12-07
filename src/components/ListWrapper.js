@@ -3,24 +3,15 @@ import Button from './Button'
 import Text from './Text'
 import { useNavigate } from 'react-router-dom'
 import Box from './Box'
-import { reduceClass } from 'lib'
+import { reduceClass, style } from 'lib'
 
-const ListItem = ({ children }) => {
+const ListWrapper = ({ children }) => {
 
   return (
-    <div 
-      className={
-        reduceClass([
-          'grid',
-          'grow',
-          'grid-cols-2',
-          'gap-1'
-        ])
-      }
-    >
+    <section className={reduceClass(style.listWrapper)}>
       {children}
-    </div>
+    </section>
   )
 }
 
-export default ListItem
+export default ListWrapper

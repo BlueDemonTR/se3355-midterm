@@ -1,4 +1,4 @@
-import { Box, Collapsable, ContentArea, FullScreenLoading, Hypertext, Text } from 'components'
+import { Box, Collapsable, ContentArea, FullScreenLoading, Hypertext, Section, Text, Title } from 'components'
 import { getSeperator, textColors } from 'lib'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
@@ -38,13 +38,11 @@ const Game = ({  }) => {
 
   return (
     <ContentArea>
-      <Box noFlex>
-        <Text size='text-3xl' bold>
-          {name}
-        </Text>
-      </Box>
+      <Title>
+        {name}
+      </Title>
 
-      <Box noFlex>
+      <Section>
         <Text>
           {name} is a group of games in Generation {generation} being formed by the mainline games {versions.map((x, i) => (
             <React.Fragment>
@@ -53,7 +51,7 @@ const Game = ({  }) => {
             </React.Fragment>
           ))}
         </Text>
-      </Box>
+      </Section>
 
       <Box noFlex>
         <Text>

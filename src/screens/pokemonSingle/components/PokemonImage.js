@@ -22,7 +22,10 @@ const PokemonImage = ({ item }) => {
       onMouseDown={() => setPressed(true)}
       onMouseUp={() => setPressed(false)}
       className={reduceClass([
-        'pixelated'
+        'pixelated',
+        'w-full',
+        'md:max-w-half',
+        'md:border-r-2'
       ])} 
       alt={`a pokemon sprite`}
     />

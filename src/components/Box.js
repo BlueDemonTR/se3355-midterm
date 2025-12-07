@@ -2,6 +2,7 @@ import { reduceClass } from 'lib'
 import React, { useMemo, useState } from 'react'
 
 const Box = ({ 
+  element = 'div',
   children, 
   vertical, 
   noFlex, 
@@ -11,10 +12,14 @@ const Box = ({
   justifyBetween, 
   justifyCenter,
   grow,
+  directionSwap,
+  webHidden,
+  mobileHidden,
   alignCenter,
   gap = 'gap-0'
 }) => {
-  const classes = useMemo(generateClasses, [gap, vertical, noFlex, relative, fullW, fullH, justifyBetween, grow, alignCenter, justifyCenter])
+  const classes = useMemo(generateClasses, [gap, vertical, noFlex, directionSwap, webHidden, mobileHidden, relative, fullW, fullH, justifyBetween, grow, alignCenter, justifyCenter])
+    
   
   function generateClasses() {
     const classes = ['flex', gap]
@@ -30,17 +35,25 @@ const Box = ({
     else if (justifyCenter) classes.push('justify-center') 
 
     if(grow) classes.push('grow')
+
     if(alignCenter) classes.push('items-center')
+
+    if(directionSwap) classes.push(vertical ? 'md:flex-col' : 'md:flex-row')
+    
+    if(webHidden) classes.push('md:hidden')
+    if(mobileHidden) classes.push('hidden', 'md:flex')
 
     return classes
   }
 
+  const ElementItem = element
+
   return (
-    <div
+    <ElementItem
       className={reduceClass(classes)}
     >
       { children }
-    </div>
+    </ElementItem>
   )
 }
 

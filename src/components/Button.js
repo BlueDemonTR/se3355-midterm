@@ -1,8 +1,8 @@
-import { reduceClass } from 'lib'
+import { reduceClass, style } from 'lib'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
-const Button = ({ text, onClick, disabled, loadingButton }) => {
+const Button = ({ text, onClick, disabled, loadingButton, styles = style.defaultButton }) => {
   const isLoading = useSelector(state => state.appState.loadingButton === loadingButton)
 
   function handleClick(e) {
@@ -16,17 +16,7 @@ const Button = ({ text, onClick, disabled, loadingButton }) => {
 
   return (
     <button
-      className={reduceClass([
-        'bg-white', 
-        'hover:bg-blue-200', 
-        'active:bg-blue-300', 
-        'disabled:hover:bg-white',
-        'disabled:text-gray-500',
-        'transition-colors',
-        'border-2', 
-        'rounded-2xl',
-        'p-1'
-      ])}
+      className={reduceClass(styles)}
       onClick={handleClick}
       disabled={disabled || isLoading}
     >

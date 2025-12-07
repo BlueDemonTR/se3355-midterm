@@ -2,26 +2,31 @@ import React, { useState } from 'react'
 import Box from './Box'
 import { reduceClass, textColors } from 'lib'
 import Text from './Text'
+import Section from './Section'
 
 const Collapsable = ({ title, content }) => {
   const [open, setOpen] = useState(false)
 
   return (
-    <Box noFlex>
-      <div
+    <Section>
+      <button
         className={reduceClass([
-          'bg-red-600',
+          'bg-pokeball-red',
           'p-2',
           'border-4',
-          'border-black',
-          'cursor-pointer'
+          'border-pokeball-black',
+          'hover:bg-masterball-purple',
+          'active:bg-masterball-pink',
+          'transition-colors',
+          'cursor-pointer',
+          'w-full'
         ])}
         onClick={() => setOpen(!open)}
       >
         <Text col={textColors.WHITE} bold>
           {title}
         </Text>
-      </div>
+      </button>
 
       <div className={reduceClass([
         'relative', 
@@ -34,7 +39,7 @@ const Collapsable = ({ title, content }) => {
 
         <div
           className={reduceClass([
-            'bg-gray-100',
+            'bg-pokeball-white',
             'p-2',
             'border-4',
             'border-t-0',
@@ -67,7 +72,7 @@ const Collapsable = ({ title, content }) => {
         />
 
       </div>
-    </Box>
+    </Section>
   )
 }
 

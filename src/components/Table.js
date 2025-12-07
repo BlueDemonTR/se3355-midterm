@@ -6,6 +6,9 @@ const Table = ({ columns = [], data = [] }) => {
 
   return (
     <table
+      className={reduceClass([
+        'w-full'
+      ])}
     >
       <tr>
         {columns.map(x => (

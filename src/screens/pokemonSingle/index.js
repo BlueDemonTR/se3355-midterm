@@ -1,4 +1,4 @@
-import { AudioPlayer, Box, Collapsable, ContentArea, FullScreenLoading, Hypertext, Table, Text } from 'components'
+import { AudioPlayer, Box, Collapsable, ContentArea, FullScreenLoading, Hypertext, Section, Table, Text, Title } from 'components'
 import { getSeperator, textColors } from 'lib'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
@@ -44,38 +44,41 @@ const PokemonSingle = ({  }) => {
 
   return (
     <ContentArea>
-      <Box noFlex>
-        <Text size='text-3xl' bold>
-          {name}
-        </Text>
+      <Title 
+        children={name}
+        otherNames={otherNames} 
+      />
 
-        <Text col={textColors.GREY} size='text-xs'>
-          (Otherwise known as {otherNames.join(', ')})
-        </Text>
-      </Box>
-
-      <Box noFlex gap='gap-2' alignCenter>
-        <Box noFlex fullW>
-          <PokemonImage item={sprite} />
-        </Box>
-
-        <Box vertical noFlex justifyBetween gap='gap-2'>
-          {types.map(({ name, sprite }) => (
-            <Box>
-              <img
-                alt={name} 
-                src={sprite} 
+      <Section alignCenter directionSwap gap='gap-2'>
+        <PokemonImage item={sprite} />
+        
+        <Box gap='gap-2'>
+          <Box noFlex mobileHidden wid>
+            {!!stats.length && (
+              <Table
+                title='Base Stats'
+                columns={['name', 'base_stat']}
+                data={stats}
               />
-            </Box>
-          ))}
-        </Box>
-
-        <Box noFlex>
+            )}
+          </Box>
+          
+          <Box vertical noFlex justifyBetween gap='gap-2'>
+            {types.map(({ name, sprite }) => (
+              <Box>
+                <img
+                  alt={name} 
+                  src={sprite} 
+                />
+              </Box>
+            ))}
+          </Box>
+          
           <AudioPlayer 
             audio={cries}
           />
         </Box>
-      </Box>
+      </Section>
 
       <Text italic>
         "{description}"
@@ -104,7 +107,7 @@ const PokemonSingle = ({  }) => {
 
       )}
 
-      <Box noFlex>
+      <Section>
         <Text>
           {name} is a Pokémon that appears in the mainline games {playable.map((x, i) => (
             <React.Fragment>
@@ -114,7 +117,7 @@ const PokemonSingle = ({  }) => {
             </React.Fragment>
           ))}
         </Text>
-      </Box>
+      </Section>
 
       <Collapsable 
         title='Moves that this Pokémon can learn'
@@ -134,13 +137,15 @@ const PokemonSingle = ({  }) => {
         ))}
       />
 
-      {!!stats.length && (
-        <Table
-          title='Base Stats'
-          columns={['name', 'base_stat']}
-          data={stats}
-        />
-      )}
+      <Section webHidden>
+        {!!stats.length && (
+          <Table
+            title='Base Stats'
+            columns={['name', 'base_stat']}
+            data={stats}
+          />
+        )}
+      </Section>
     </ContentArea>
   )
 }

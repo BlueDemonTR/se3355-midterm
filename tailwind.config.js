@@ -5,7 +5,19 @@ content: [
 ],
 theme: {
     extend: {
+        colors: {
+            'pokeball-red': '#ff0202',
+            'pokeball-white': '#ffffff',
+            'pokeball-black': '#050505',
+            'masterball-purple': '#423392',
+            'masterball-pink': '#ffa8cc',
+            'button-disabled': '#E2E0E0',
+            'button-normal': '#FFFFFF',
+            'button-hover': '#8CE6FF',
+            'button-active': '#4FD9FF',
+        },
         spacing: {
+            half: '50%',
             header: '64px',
             content: 'calc(100vh - 64px)'
         },
