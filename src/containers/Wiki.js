@@ -27,7 +27,6 @@ const Wiki = ({  }) => {
     })
   }
 
-
   return (
     <Box relative>
       {navigatorLoading && (
