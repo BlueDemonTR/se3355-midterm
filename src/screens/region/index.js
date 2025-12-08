@@ -1,4 +1,4 @@
-import { Box, Collapsable, ContentArea, FullScreenLoading, Hypertext, Text } from 'components'
+import { Box, Collapsable, ContentArea, FullScreenLoading, Hypertext, Section, Text, Title } from 'components'
 import { getSeperator, textColors } from 'lib'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
@@ -31,17 +31,12 @@ const Region = ({  }) => {
 
   return (
     <ContentArea>
-      <Box noFlex>
-        <Text size='text-3xl' bold>
-          {name}
-        </Text>
+      <Title 
+        children={name}
+        otherNames={otherNames}
+      />
 
-        <Text col={textColors.GREY} size='text-xs'>
-          (Otherwise known as {otherNames.join(', ')})
-        </Text>
-      </Box>
-
-      <Box noFlex>
+      <Section>
         <Text>
           {name} is a region in Pokémon that appears in the mainline games {playable.map((x, i) => (
             <React.Fragment>
@@ -51,7 +46,7 @@ const Region = ({  }) => {
             </React.Fragment>
           ))}
         </Text>
-      </Box>
+      </Section>
 
       <Collapsable 
         title='Locations in this area'
@@ -62,24 +57,24 @@ const Region = ({  }) => {
         ))}
       />
 
-      <Text size='text-xl' bold>
-        Pokedéxes in this area
-      </Text>
+      <Section>
+        <Text size='text-xl' bold>
+          Pokedéxes in this area
+        </Text>
 
-      {pokedexes.map(pokedex => (
-        <Collapsable 
-          title={pokedex.description}
-          content={pokedex.pokemon.map(x => (
-            <Text>
-              {x.entry_number}-{' '}
+        {pokedexes.map(pokedex => (
+          <Collapsable 
+            title={pokedex.description}
+            content={pokedex.pokemon.map(x => (
+              <Text>
+                {x.entry_number}-{' '}
 
-              <Hypertext item={{ name: x.name, url: `/pokemon/${x.id}` }} />
-            </Text>
-          ))}
-        />
-      ))}
-
-
+                <Hypertext item={{ name: x.name, url: `/pokemon/${x.id}` }} />
+              </Text>
+            ))}
+          />
+        ))}
+      </Section>
     </ContentArea>
   )
 }

@@ -1,14 +1,14 @@
+import Box from 'components/Box'
+import Button from 'components/Button'
+import Text from 'components/Text'
 import React, { useState } from 'react'
-import Box from './Box'
-import Button from './Button'
-import Text from './Text'
 
 const Paginator = ({ page, endReached, setPage }) => {
   const hasPrev = page > 0
 
 
   return (
-    <Box 
+    <Box
       element='footer'
       vertical 
       fullW 
@@ -16,7 +16,7 @@ const Paginator = ({ page, endReached, setPage }) => {
       noFlex
     >
       <Box>
-        <Button 
+        <Button
           text='Previous' 
           disabled={!hasPrev} 
           loadingButton='fetchPokemon' 

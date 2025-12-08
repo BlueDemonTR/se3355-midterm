@@ -13,8 +13,8 @@ theme: {
             'masterball-pink': '#ffa8cc',
             'button-disabled': '#E2E0E0',
             'button-normal': '#FFFFFF',
-            'button-hover': '#8CE6FF',
-            'button-active': '#4FD9FF',
+            'button-hover': '#4FD9FF',
+            'button-active': '#2CA6FF',
         },
         spacing: {
             half: '50%',

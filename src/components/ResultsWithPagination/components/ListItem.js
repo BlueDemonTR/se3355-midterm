@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import Button from './Button'
-import Text from './Text'
 import { useNavigate } from 'react-router-dom'
-import Box from './Box'
 import { reduceClass, style } from 'lib'
+import Text from 'components/Text'
 
 const ListItem = ({ navigateTo, item }) => {
   const { name, id, sprite, title } = item,

@@ -1,10 +1,8 @@
 import { Api, capitalize } from 'lib'
 
-const PAGE_SIZE = 20
-
 async function getGames(offset, loadingButton) {
   const data = {
-    limit: PAGE_SIZE,
+    limit: global.PAGE_SIZE,
     offset: offset ?? 0
   }
   

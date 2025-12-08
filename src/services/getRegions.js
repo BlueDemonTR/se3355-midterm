@@ -1,10 +1,8 @@
 import { Api, capitalize } from 'lib'
 
-const PAGE_SIZE = 20
-
 async function getRegions(offset, loadingButton = 'navigator') {
   const data = {
-    limit: PAGE_SIZE,
+    limit: global.PAGE_SIZE,
     offset: offset ?? 0
   }
   
