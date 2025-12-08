@@ -1,4 +1,4 @@
-import { AudioPlayer, Box, Collapsable, ContentArea, FullScreenLoading, Hypertext, Section, Table, Text, Title } from 'components'
+import { AudioPlayer, Box, Collapsable, ContentArea, FullScreenLoading, Hypertext, Section, Table, Text, Title, TypePlate } from 'components'
 import { getSeperator, textColors } from 'lib'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
@@ -63,14 +63,11 @@ const PokemonSingle = ({  }) => {
             )}
           </Box>
           
-          <Box vertical noFlex justifyBetween gap='gap-2'>
-            {types.map(({ name, sprite }) => (
-              <Box>
-                <img
-                  alt={name} 
-                  src={sprite} 
-                />
-              </Box>
+          <Box vertical noFlex justifyAround gap='gap-2'>
+            {types.map((item) => (
+              <TypePlate 
+                item={item}
+              />
             ))}
           </Box>
           

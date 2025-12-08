@@ -11,6 +11,7 @@ const Box = ({
   fullH, 
   justifyBetween, 
   justifyCenter,
+  justifyAround,
   grow,
   directionSwap,
   webHidden,
@@ -18,7 +19,7 @@ const Box = ({
   alignCenter,
   gap = 'gap-0'
 }) => {
-  const classes = useMemo(generateClasses, [gap, vertical, noFlex, directionSwap, webHidden, mobileHidden, relative, fullW, fullH, justifyBetween, grow, alignCenter, justifyCenter])
+  const classes = useMemo(generateClasses, [gap, vertical, noFlex, directionSwap, webHidden, mobileHidden, relative, fullW, fullH, justifyBetween, grow, alignCenter, justifyCenter, justifyAround])
     
   
   function generateClasses() {
@@ -33,6 +34,7 @@ const Box = ({
 
     if(justifyBetween) classes.push('justify-between')
     else if (justifyCenter) classes.push('justify-center') 
+    else if (justifyAround) classes.push('justify-around') 
 
     if(grow) classes.push('grow')
 

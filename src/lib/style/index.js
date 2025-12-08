@@ -6,6 +6,7 @@ import listWrapper from './listWrapper'
 import navButton from './navButton'
 import navigation from './navigation'
 import navigationInner from './navigationInner'
+import typePlate from './typePlate'
 
 const style = {
   navigation,
@@ -15,7 +16,8 @@ const style = {
   contentArea,
   listItem,
   listWrapper,
-  navButton
+  navButton,
+  typePlate
 }
 
 export default style
