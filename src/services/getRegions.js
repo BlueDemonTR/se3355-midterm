@@ -26,7 +26,10 @@ async function getDetails(id, loadingButton) {
   const data = await Api.get(`/region/${id}`, {}, loadingButton)
   if(!data) return {}
   
-  return { title: data.main_generation?.name.replace('generation-', '').toUpperCase() }
+  return { 
+    title: data.main_generation?.name.replace('generation-', '').toUpperCase(), 
+    generation: parseInt(data.main_generation.url.match(/generation\/\d+\//)[0].match(/[0-9]+/)) 
+  }
 }
 
 export default getRegions

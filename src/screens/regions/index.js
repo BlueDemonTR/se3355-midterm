@@ -11,7 +11,6 @@ const Regions = () => {
       items={regions}
       pullMore={getRegions}
       pullMoreAction='REGIONS_PUSH_MULTIPLE'
-      noFilter
       title='Pokémon'
     />
   )
