@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/se3355-midterm/static/css/main.2bea5e0f.css",
-    "main.js": "/se3355-midterm/static/js/main.090d2a1b.js",
+    "main.css": "/se3355-midterm/static/css/main.45a57e1a.css",
+    "main.js": "/se3355-midterm/static/js/main.b0650ba3.js",
     "static/js/453.bb77cb7b.chunk.js": "/se3355-midterm/static/js/453.bb77cb7b.chunk.js",
     "static/media/pokeball.png": "/se3355-midterm/static/media/pokeball.de27ea23ffb86f430e73.png",
     "index.html": "/se3355-midterm/index.html",
-    "main.2bea5e0f.css.map": "/se3355-midterm/static/css/main.2bea5e0f.css.map",
-    "main.090d2a1b.js.map": "/se3355-midterm/static/js/main.090d2a1b.js.map",
+    "main.45a57e1a.css.map": "/se3355-midterm/static/css/main.45a57e1a.css.map",
+    "main.b0650ba3.js.map": "/se3355-midterm/static/js/main.b0650ba3.js.map",
     "453.bb77cb7b.chunk.js.map": "/se3355-midterm/static/js/453.bb77cb7b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2bea5e0f.css",
-    "static/js/main.090d2a1b.js"
+    "static/css/main.45a57e1a.css",
+    "static/js/main.b0650ba3.js"
   ]
 }
