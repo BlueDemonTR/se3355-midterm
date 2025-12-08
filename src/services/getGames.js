@@ -26,7 +26,10 @@ async function getDetails(id, loadingButton) {
   const data = await Api.get(`/version-group/${id}`, {}, loadingButton)
   if(!data) return {}
   
-  return { title: data.generation?.name.replace('generation-', '').toUpperCase(), generation: parseInt(data.generation.url.match(/generation\/\d+\//)[0].match(/[0-9]+/)) }
+  return { 
+    title: data.generation?.name.replace('generation-', '').toUpperCase(), 
+    generation: parseInt(data.generation.url.match(/generation\/\d+\//)[0].match(/[0-9]+/)) 
+  }
 }
 
 export default getGames

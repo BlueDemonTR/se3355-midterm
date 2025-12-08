@@ -28,7 +28,7 @@ async function getDetails(id, loadingButton) {
   
   return { 
     title: data.main_generation?.name.replace('generation-', '').toUpperCase(), 
-    generation: parseInt(data.main_generation.url.match(/generation\/\d+\//)[0].match(/[0-9]+/)) 
+    generation: parseInt(data.main_generation?.url.match(/generation\/\d+\//)[0].match(/[0-9]+/)) 
   }
 }
 
