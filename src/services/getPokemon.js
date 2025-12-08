@@ -1,6 +1,6 @@
 import { Api, capitalize } from 'lib'
 
-async function getPokemon(offset, loadingButton = 'navigator') {
+async function getPokemon(offset, loadingButton) {
   const data = {
     limit: global.PAGE_SIZE,
     offset: offset ?? 0
@@ -23,10 +23,19 @@ async function getPokemon(offset, loadingButton = 'navigator') {
 }
 
 async function getDetails(id, loadingButton) {
+  const res = { sprite: '', generation: 0 }
+  
   const data = await Api.get(`/pokemon/${id}`, {}, loadingButton)
-  if(!data) return {}
+  if(!data) return res
 
-  return { sprite: data.sprites?.front_default }
+  res.sprite = data.sprites?.front_default
+
+  const species = await Api.get(data.species.url)
+  if(!data) return res
+
+  res.generation = parseInt(species.generation.url.match(/generation\/\d+\//)[0].match(/[0-9]+/))
+
+  return res
 }
 
 export default getPokemon

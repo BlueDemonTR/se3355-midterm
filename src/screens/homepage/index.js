@@ -2,12 +2,16 @@ import { ContentArea, Hypertext, Section, Text, Title } from 'components'
 import { Api, textColors } from 'lib'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { getGenerations } from 'services'
 
 const Homepage = ({  }) => {
   const summary = useSelector(state => state.data?.summary),
+    generationsLen = useSelector(state => state.data?.generations?.length),
     dispatch = useDispatch()
 
   async function getSummary() {
+    if(!summary) return
+
     const res = await Api.get('https://en.wikipedia.org/api/rest_v1/page/summary/Pokemon', {}, 'navigator')
     if(!res) return
 

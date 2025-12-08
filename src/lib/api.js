@@ -26,10 +26,12 @@ const Api = {
 	async get(endpoint = '', params = {}, button) {
 		await setHeaders()
 
-		store.dispatch({
-			type: 'LOADING_BUTTON',
-			payload: button
-		})
+		if(button) {
+			store.dispatch({
+				type: 'LOADING_BUTTON',
+				payload: button
+			})
+		}
 
 		const apiUrl = endpoint.startsWith('http')
 			?	`${endpoint}${buildURLParams(params)}`
@@ -42,141 +44,25 @@ const Api = {
 				return true
 			}
 
-			store.dispatch({ type: 'LOADING_BUTTON', payload: null })
-
-			return req.data
-		} catch (e) {
-			if(e?.response?.data?.includes('Bad Gateway')) return
-
-			store.dispatch({
-				type: 'HANDLE_RES',
-				payload: { err: e && e.response ? e.response.data : 'Something went wrong!' }
-			})
-
-			store.dispatch({ type: 'LOADING_BUTTON', payload: null })
-			return false
-		}
-	},
-	async post(endpoint, params, button) {
-		await setHeaders()
-
-		store.dispatch({
-			type: 'LOADING_BUTTON',
-			payload: button
-		})
-
-		try {
-			const req = await axios.post(`${API_URL}${endpoint}`, params)
-			store.dispatch({ type: 'LOADING_BUTTON', payload: null })
-			if(req.status === 202) {
-				store.dispatch({ type: 'HANDLE_RES', payload: { res: req.data } })
-				return true
+			if(button) {
+				store.dispatch({ type: 'LOADING_BUTTON', payload: null })
 			}
 
 			return req.data
 		} catch (e) {
 			if(e?.response?.data?.includes('Bad Gateway')) return
-			store.dispatch({
-				type: 'HANDLE_RES',
-				payload: { err: e && e.response ? e.response.data : 'Something went wrong!' }
-			})
 
-			store.dispatch({ type: 'LOADING_BUTTON', payload: null })
-			return false
-		}
-	},
-	async put(endpoint, params, button) {
-		await setHeaders()
-
-		store.dispatch({
-			type: 'LOADING_BUTTON',
-			payload: button
-		})
-
-		try {
-			const req = await axios.put(`${API_URL}${endpoint}`, params)
-			store.dispatch({ type: 'LOADING_BUTTON', payload: null })
-			if(req.status === 202) {
-				store.dispatch({ type: 'HANDLE_RES', payload: { res: req.data } })
-				return true
+			if(button) {
+				store.dispatch({
+					type: 'HANDLE_RES',
+					payload: { err: e && e.response ? e.response.data : 'Something went wrong!' }
+				})
 			}
 
 			store.dispatch({ type: 'LOADING_BUTTON', payload: null })
-			return req.data
-		} catch (e) {
-			if(e?.response?.data?.includes('Bad Gateway')) return
-			store.dispatch({
-				type: 'HANDLE_RES',
-				payload: { err: e && e.response ? e.response.data : 'Something went wrong!' }
-			})
-
-			store.dispatch({ type: 'LOADING_BUTTON', payload: null })
 			return false
 		}
-	},
-	async patch(endpoint, params, button) {
-		await setHeaders()
-
-		store.dispatch({
-			type: 'LOADING_BUTTON',
-			payload: button
-		})
-
-		try {
-			const req = await axios.patch(`${API_URL}${endpoint}`, params)
-			store.dispatch({ type: 'LOADING_BUTTON', payload: null })
-
-			if(req.status === 202) {
-				store.dispatch({ type: 'HANDLE_RES', payload: { res: req.data } })
-				return true
-			}
-
-			store.dispatch({ type: 'LOADING_BUTTON', payload: null })
-			return req.data
-		} catch (e) {
-			if(e?.response?.data?.includes('Bad Gateway')) return
-			store.dispatch({
-				type: 'HANDLE_RES',
-				payload: { err: e && e.response ? e.response.data : 'Something went wrong!' }
-			})
-
-			store.dispatch({ type: 'LOADING_BUTTON', payload: null })
-			return false
-		}
-	},
-	async delete(endpoint, params, button) {
-		await setHeaders()
-
-		store.dispatch({
-			type: 'LOADING_BUTTON',
-			payload: button
-		})
-
-		const apiUrl = `${API_URL}${endpoint}${buildURLParams(params)}`
-
-		try {
-			const req = await axios.delete(apiUrl)
-			store.dispatch({ type: 'LOADING_BUTTON', payload: null })
-
-			if(req.status === 202) {
-				store.dispatch({ type: 'HANDLE_RES', payload: { res: req.data } })
-				return true
-			}
-
-			store.dispatch({ type: 'LOADING_BUTTON', payload: null })
-			return req.data
-		} catch (e) {
-			if(e?.response?.data?.includes('Bad Gateway')) return
-			
-			store.dispatch({
-				type: 'HANDLE_RES',
-				payload: { err: e && e.response ? e.response.data : 'Something went wrong!' }
-			})
-
-			store.dispatch({ type: 'LOADING_BUTTON', payload: null })
-			return false
-		}
-	},
+	}
 }
 
 export default Api

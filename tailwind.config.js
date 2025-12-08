@@ -4,6 +4,9 @@ content: [
     './src/**/*.{js,jsx,ts,tsx}', // The path to your React components/files
 ],
 theme: {
+    data: {
+        activated: 'status~="active"'
+    },
     extend: {
         colors: {
             'pokeball-red': '#ff0202',

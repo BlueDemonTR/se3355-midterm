@@ -1,52 +1,81 @@
 import Collapsable from 'components/Collapsable'
 import ContentArea from 'components/ContentArea'
 import Title from 'components/Title'
-import { ListItem, ListWrapper, Paginator } from './components'
+import { GenerationFilter, ListItem, ListWrapper, Paginator } from './components'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 
-const ResultsWithPagination = ({ items, title, pullMore, pullMoreAction }) => {
-  console.log('GLOBAL', global);
-  
-
+const ResultsWithPagination = ({ items, title, pullMore, pullMoreAction, noFilter }) => {
   const [page, setPage] = useState(0),
     [endReached, setEndReached] = useState(false),
-    currentItems = items.slice(page * global.PAGE_SIZE, (page + 1) * global.PAGE_SIZE),
+    [filters, setFilters] = useState([]),
+    filteredItems = filterItems(items),
+    currentItems = filteredItems.slice(page * global.PAGE_SIZE, (page + 1) * global.PAGE_SIZE),
     dispatch = useDispatch()
 
+  function filterItems(items) {
+    if(!filters.length) return items
+
+    return items.filter(x => filters.includes(x.generation))
+  }
+
+  function handleChangeFilters(id) {
+    let newFilters = [...filters]
+
+    if(filters.includes(id)) {
+      newFilters = newFilters.filter(x => x !== id)
+    } else {
+      newFilters.push(id)
+    }
+
+    setFilters(newFilters)
+
+    setPage(0)
+  }
+
   async function fetchItems() {
-    const len = items?.length ?? 0
+    const pulled = [],
+      requiredCount = (page + 1) * global.PAGE_SIZE
 
     setEndReached(false)
 
-    if(len > (page + 1) * global.PAGE_SIZE) return
-
+    let len = filterItems(items)?.length
+    
     dispatch({
       type: 'LOADING_BUTTON',
       payload: 'navigator'
     })
 
-    const res = await pullMore(items?.length)
+    while (len <= requiredCount) {
+      const res = await pullMore((items?.length ?? 0) + pulled.length)
+
+      if(!res) break
+
+      pulled.push(...res.data)
+
+      len += filterItems(res.data)?.length
+      
+      if(res.endReached) {
+        setEndReached(true)
+        break
+      }
+    }
     
     dispatch({
       type: 'LOADING_BUTTON',
       payload: null
     })
 
-    if(!res) return
-
-    if(res.endReached) setEndReached(true)
-
     dispatch({
       type: pullMoreAction,
-      payload: res.data
+      payload: pulled
     })
   }
   
   useEffect(() => {
     fetchItems()
-  }, [page])
+  }, [page, filters])
     
   return (
     <ContentArea>
@@ -54,10 +83,17 @@ const ResultsWithPagination = ({ items, title, pullMore, pullMoreAction }) => {
         {title}
       </Title>
 
-      <Collapsable
-        title='Filter by generation'
-        content={() => null}
-      />
+      {!noFilter && (
+        <Collapsable
+          title='Filter by generation'
+          content={(
+            <GenerationFilter 
+              selected={filters}
+              handleSelect={handleChangeFilters}
+            />
+          )}
+        />
+      )}
 
       <ListWrapper>
         {currentItems?.map(x => (

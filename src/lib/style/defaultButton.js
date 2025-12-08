@@ -7,7 +7,8 @@ const defaultButton = [
   'transition-colors',
   'border-2', 
   'rounded-2xl',
-  'p-1'
+  'p-1',
+  'data-activated:bg-button-active'
 ]
 
 export default defaultButton

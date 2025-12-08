@@ -5,7 +5,7 @@ import './tailwind.css'
 import reportWebVitals from './reportWebVitals';
 import Root from 'containers';
 
-global.PAGE_SIZE = 10
+global.PAGE_SIZE = 20
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
