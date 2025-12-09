@@ -4,6 +4,8 @@ import collapsableTitle from './collapsableTitle'
 import contentArea from './contentArea'
 import contentWrapper from './contentWrapper'
 import defaultButton from './defaultButton'
+import footer from './footer'
+import footerInner from './footerInner'
 import hyperText from './hyperText'
 import listItem from './listItem'
 import listWrapper from './listWrapper'
@@ -29,7 +31,9 @@ const style = {
   collapsableContentWrapper,
   collapsableContent,
   pokeballNub,
-  hyperText
+  hyperText,
+  footer,
+  footerInner
 }
 
 export default style

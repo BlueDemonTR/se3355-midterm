@@ -1,5 +1,5 @@
 
-import { Box, FullScreenLoading, Nav } from 'components'
+import { Box, Footer, FullScreenLoading, Nav } from 'components'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
@@ -43,6 +43,8 @@ const Wiki = ({  }) => {
         <Route exact path='/region/:id' element={<Region />} />
         <Route exact path='/game/:id' element={<Game />} />
       </Routes>
+
+      <Footer />
     </Box>
   )
 }

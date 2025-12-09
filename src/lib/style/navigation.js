@@ -4,7 +4,7 @@ const navigation = [
   'flex-1', 
   'items-center',
   'sticky', 
-  'w-100%', 
+  'w-full', 
   'h-header', 
   'bg-pokeball-white',
   'shadow-xl',

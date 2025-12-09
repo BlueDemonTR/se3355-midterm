@@ -12,7 +12,9 @@ const listItem = [
   'hover:bg-button-hover',
   'active:bg-button-active',
   'hover:shadow-xl',
-  'cursor-pointer'
+  'cursor-pointer',
+  'max-h-64',
+  'min-h-32'
 ]
 
 export default listItem
