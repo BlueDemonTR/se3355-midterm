@@ -97,8 +97,8 @@ const ResultsWithPagination = ({ items, navigateTo, title, pullMore, pullMoreAct
       )}
 
       <ListWrapper>
-        {currentItems?.map(x => (
-          <ListItem item={x} navigateTo={navigateTo} />
+        {currentItems?.map((x, i) => (
+          <ListItem item={x} key={i} navigateTo={navigateTo} />
         ))}
       </ListWrapper>
 

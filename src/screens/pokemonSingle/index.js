@@ -13,6 +13,7 @@ const PokemonSingle = ({  }) => {
 
   useEffect(() => {
     getDetails()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
 
   async function getDetails() {
@@ -84,7 +85,7 @@ const PokemonSingle = ({  }) => {
           {!!evolvesInto.length && (
             <span>
               {!!evolvesFrom && 'and'} evolves into {evolvesInto.map((x, i) => (
-                <React.Fragment>
+                <React.Fragment key={i}>
                   <PokemonText 
                     pokemon={x}
                   />
@@ -101,7 +102,7 @@ const PokemonSingle = ({  }) => {
       <Section>
         <Text>
           {name} is a Pokémon that appears in the mainline games {playable.map((x, i) => (
-            <React.Fragment>
+            <React.Fragment key={i}>
               <Hypertext item={x} />
 
               {getSeperator(i, playable.length)}
@@ -112,8 +113,8 @@ const PokemonSingle = ({  }) => {
 
       <Collapsable 
         title='Moves that this Pokémon can learn'
-        content={moves.map(x => (
-          <Text>
+        content={moves.map((x, i) => (
+          <Text key={i}>
             {x}
           </Text>
         ))}
@@ -121,8 +122,8 @@ const PokemonSingle = ({  }) => {
 
       <Collapsable 
         title='Abilities that this Pokémon can get'
-        content={abilities.map(x => (
-          <Text>
+        content={abilities.map((x, i) => (
+          <Text key={i}>
             {x}
           </Text>
         ))}

@@ -17,8 +17,9 @@ const Nav = () => {
   return (
     <nav className={reduceClass(style.navigation)}>
       <div className={reduceClass(style.navigationInner)}>
-        {items.map(x => (
+        {items.map((x, i) => (
           <Button
+            key={i}
             styles={style.navButton}
             text={x.text}
             onClick={() => navigate(x.address)}

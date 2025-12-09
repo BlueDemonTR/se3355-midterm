@@ -10,38 +10,44 @@ const Table = ({ columns = [], data = [] }) => {
         'w-full'
       ])}
     >
-      <tr>
-        {columns.map(x => (
-          <th
-            className={reduceClass([
-              'border-4',
-              'p-2'
-            ])}
-          >
-            <Text bold>
-              {capitalize(x)}
-            </Text>
-          </th>
-        ))}
-      </tr>
-
-      {data.map(row => (
+      <thead>
         <tr>
-          {columns.map(key => (
+          {columns.map((x, i) => (
             <th
+              key={i}
               className={reduceClass([
-                'border-2',
-                'border-t-0',
+                'border-4',
                 'p-2'
               ])}
             >
-              <Text med>
-                {row[key]}
+              <Text bold>
+                {capitalize(x)}
               </Text>
             </th>
           ))}
         </tr>
-      ))}
+      </thead>
+
+      <tbody>
+        {data.map((row, i) => (
+          <tr key={i}>
+            {columns.map((key, i) => (
+              <th
+                key={i}
+                className={reduceClass([
+                  'border-2',
+                  'border-t-0',
+                  'p-2'
+                ])}
+              >
+                <Text med>
+                  {row[key]}
+                </Text>
+              </th>
+            ))}
+          </tr>
+        ))}
+      </tbody>
     </table>
   )
 }

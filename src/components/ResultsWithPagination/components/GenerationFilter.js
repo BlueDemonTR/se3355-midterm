@@ -8,8 +8,9 @@ const GenerationFilter = ({ selected = [], handleSelect }) => {
 
   return (
     <Box gap='gap-1'>
-      {generations.map(({ name, id }) => (
+      {generations.map(({ name, id }, i) => (
         <Button 
+          key={i}
           text={name}
           onClick={() => handleSelect(id)}
           active={selected.includes(id)}

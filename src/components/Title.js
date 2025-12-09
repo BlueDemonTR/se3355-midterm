@@ -5,8 +5,6 @@ import { textColors } from 'lib'
 
 const Title = ({ children, otherNames = [], ...rest }) => {
 
-
-
   return (
     <Box noFlex element='header'>
       <Text size='text-3xl' bold>

@@ -6,8 +6,9 @@ const Types = ({ types }) => {
 
   return (
     <Box vertical noFlex justifyAround gap='gap-2'>
-      {types.map((item) => (
+      {types.map((item, i) => (
         <TypePlate
+          key={i}
           item={item}
         />
       ))}

@@ -11,6 +11,7 @@ const Game = ({  }) => {
 
   useEffect(() => {
     getDetails()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
 
   async function getDetails() {
@@ -56,7 +57,7 @@ const Game = ({  }) => {
       <Box noFlex>
         <Text>
           In these games moves can be learnt by: {move_learn_methods.map((x, i) => (
-            <React.Fragment>
+            <React.Fragment key={i}>
               {x}{getSeperator(i, move_learn_methods.length)}
             </React.Fragment>
           ))}
@@ -66,10 +67,10 @@ const Game = ({  }) => {
       {!!regions.length && (
         <Collapsable 
           title='Regions that appear in these games'
-          content={regions.map(x => (
-              <Text>
-                <Hypertext item={x} />
-              </Text>
+          content={regions.map((x, i) => (
+            <Text key={i}>
+              <Hypertext item={x} />
+            </Text>
           ))}
         />
       )}

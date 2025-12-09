@@ -33,10 +33,10 @@ const Homepage = ({  }) => {
       <Section>
         <Text italic>
           {summary} <br />
+        </Text>
           
-          <Text col={textColors.GREY} size='text-xs'>
-            - Summary pulled from Wikipedia
-          </Text>
+        <Text italic col={textColors.GREY} size='text-xs'>
+          - Summary pulled from Wikipedia
         </Text>
       </Section>
 

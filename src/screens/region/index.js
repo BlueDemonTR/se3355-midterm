@@ -39,7 +39,7 @@ const Region = () => {
       <Section>
         <Text>
           {name} is a region in Pokémon that appears in the mainline games {playable.map((x, i) => (
-            <React.Fragment>
+            <React.Fragment key={i}>
               <Hypertext item={x} />
 
               {getSeperator(i, playable.length)}
@@ -62,8 +62,9 @@ const Region = () => {
           Pokedéxes in this area
         </Text>
 
-        {pokedexes.map(pokedex => (
+        {pokedexes.map((pokedex, i) => (
           <Collapsable 
+            key={i}
             title={pokedex.description}
             content={pokedex.pokemon.map(x => (
               <Text>
