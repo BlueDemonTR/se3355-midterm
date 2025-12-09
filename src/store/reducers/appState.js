@@ -29,9 +29,6 @@ const appState = (state = defaultState, action) => {
 			}
 
 		case 'HANDLE_RES':
-			alert('womp wompo')
-			console.log(payload)
-			
 			return {
 				...state,
 				errRes: {

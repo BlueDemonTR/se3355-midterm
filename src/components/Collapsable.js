@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Box from './Box'
 import { reduceClass, style, textColors } from 'lib'
 import Text from './Text'
 import Section from './Section'

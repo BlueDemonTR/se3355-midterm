@@ -1,7 +1,7 @@
 import Box from 'components/Box'
 import Button from 'components/Button'
 import Text from 'components/Text'
-import React, { useState } from 'react'
+import React from 'react'
 
 const Paginator = ({ page, endReached, setPage }) => {
   const hasPrev = page > 0

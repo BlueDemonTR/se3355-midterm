@@ -1,5 +1,5 @@
 import { reduceClass, style } from 'lib'
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 
 const Button = ({ text, onClick, disabled, loadingButton, styles = style.defaultButton, active }) => {

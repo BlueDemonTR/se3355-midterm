@@ -1,6 +1,4 @@
 import React from 'react'
-import Button from './Button'
-import { useNavigate } from 'react-router-dom'
 import { reduceClass, style } from 'lib'
 import Box from './Box'
 import Text from './Text'

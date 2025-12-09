@@ -1,6 +1,6 @@
 import Box from 'components/Box'
 import Button from 'components/Button'
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 
 const GenerationFilter = ({ selected = [], handleSelect }) => {

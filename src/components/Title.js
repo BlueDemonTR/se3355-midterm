@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Text from './Text'
 import Box from './Box'
 import { textColors } from 'lib'

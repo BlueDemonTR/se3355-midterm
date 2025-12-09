@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import Box from './Box'
+import React from 'react'
 import { reduceClass, style } from 'lib'
 
 const TypePlate = ({ item }) => {

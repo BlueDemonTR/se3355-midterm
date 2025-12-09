@@ -1,5 +1,5 @@
-import { reduceClass, style, textColors } from 'lib'
-import React, { useMemo, useState } from 'react'
+import { reduceClass, style } from 'lib'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Text = ({

@@ -1,18 +1,19 @@
 
 import { Box, Footer, FullScreenLoading, Nav } from 'components'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import { Game, Games, Homepage, Pokemon, PokemonSingle, Region, Regions } from 'screens'
 import { getGenerations } from 'services'
 
-const Wiki = ({  }) => {
+const Wiki = () => {
   const navigatorLoading = useSelector(state => state.appState?.loadingButton === 'navigator'),
     generationsLen = useSelector(state => state.data?.generations?.length),
     dispatch = useDispatch()
 
   useEffect(() => {
     fetchGenerations()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   async function fetchGenerations() {

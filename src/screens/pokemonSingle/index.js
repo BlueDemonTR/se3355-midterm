@@ -1,12 +1,11 @@
-import { AudioPlayer, Box, Collapsable, ContentArea, FullScreenLoading, Hypertext, Section, Table, Text, Title, TypePlate, Types } from 'components'
-import { getSeperator, textColors } from 'lib'
+import { AudioPlayer, Box, Collapsable, ContentArea, FullScreenLoading, Hypertext, Section, Table, Text, Title, Types } from 'components'
+import { getSeperator } from 'lib'
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { getPokemonDetails, getRegionDetails } from 'services'
+import { getPokemonDetails } from 'services'
 import { PokemonImage, PokemonText } from './components'
 
-const PokemonSingle = ({  }) => {
+const PokemonSingle = () => {
   const { id } = useParams(),
     [loading, setLoading] = useState(true),
     [data, setData] = useState(null)

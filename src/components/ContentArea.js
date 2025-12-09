@@ -1,5 +1,5 @@
 import { reduceClass, style } from 'lib'
-import React, { useState } from 'react'
+import React from 'react'
 
 const ContentArea = ({ children }) => {
 

@@ -1,5 +1,5 @@
 import { Hypertext } from 'components'
-import React, { useState } from 'react'
+import React from 'react'
 
 const PokemonText = ({ pokemon }) => {
 

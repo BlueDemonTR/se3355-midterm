@@ -1,10 +1,9 @@
 import { ContentArea, Hypertext, Section, Text, Title } from 'components'
 import { Api, textColors } from 'lib'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getGenerations } from 'services'
 
-const Homepage = ({  }) => {
+const Homepage = () => {
   const summary = useSelector(state => state.data?.summary),
     dispatch = useDispatch()
 
@@ -22,6 +21,7 @@ const Homepage = ({  }) => {
 
   useEffect(() => {
     getSummary()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

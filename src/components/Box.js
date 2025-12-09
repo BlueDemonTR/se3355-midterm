@@ -1,5 +1,5 @@
 import { reduceClass } from 'lib'
-import React, { useMemo, useState } from 'react'
+import React, { useMemo } from 'react'
 
 const Box = ({ 
   element = 'div',

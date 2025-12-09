@@ -1,10 +1,10 @@
 import { Box, Collapsable, ContentArea, FullScreenLoading, Hypertext, Section, Text, Title } from 'components'
-import { getSeperator, textColors } from 'lib'
+import { getSeperator } from 'lib'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getGameDetails } from 'services'
 
-const Game = ({  }) => {
+const Game = () => {
   const { id } = useParams(),
     [loading, setLoading] = useState(true),
     [data, setData] = useState(null)
