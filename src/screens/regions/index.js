@@ -12,6 +12,7 @@ const Regions = () => {
       pullMore={getRegions}
       pullMoreAction='REGIONS_PUSH_MULTIPLE'
       title='Pokémon'
+      navigateTo='region'
     />
   )
 }

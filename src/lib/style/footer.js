@@ -7,7 +7,7 @@ const footer = [
   'fixed',
   'w-full', 
   'bg-pokeball-red',
-  'shadow-xl',
+  'shadow-big-inner',
   'p-4',
   'bottom-0', 
   'animate-fadeIn', 

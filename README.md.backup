@@ -26,3 +26,4 @@ Made for the midterm of the SE 3355.
 ## Shortcomings
 - Since the PokéApi does not include any utilities for searching, which I did not realize until I implemented a search utility, the only way to do so is to pull a lot of data until you get what you want, this causes a long load time to occur if you open the website and immediately filter by Gen IX. I did not realize how many endpoints Pokémon specifically would have their properties split in. In hindsight, the Pokémon tab should've probably used `/pokemon-species/` instead of `/pokemon/`
 - Since the website is hosted on github pages I had to use HashRouter instead of BrowserRouter to stop the website throwing a 404 error when refreshing
+- 

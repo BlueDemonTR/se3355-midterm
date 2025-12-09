@@ -3,10 +3,10 @@ import ContentArea from 'components/ContentArea'
 import Title from 'components/Title'
 import { GenerationFilter, ListItem, ListWrapper, Paginator } from './components'
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 
-const ResultsWithPagination = ({ items, title, pullMore, pullMoreAction, noFilter }) => {
+const ResultsWithPagination = ({ items, navigateTo, title, pullMore, pullMoreAction, noFilter }) => {
   const [page, setPage] = useState(0),
     [endReached, setEndReached] = useState(false),
     [filters, setFilters] = useState([]),
@@ -75,6 +75,7 @@ const ResultsWithPagination = ({ items, title, pullMore, pullMoreAction, noFilte
   
   useEffect(() => {
     fetchItems()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, filters])
     
   return (
@@ -97,7 +98,7 @@ const ResultsWithPagination = ({ items, title, pullMore, pullMoreAction, noFilte
 
       <ListWrapper>
         {currentItems?.map(x => (
-          <ListItem item={x} navigateTo='pokemon' />
+          <ListItem item={x} navigateTo={navigateTo} />
         ))}
       </ListWrapper>
 

@@ -12,6 +12,7 @@ const Games = () => {
       pullMore={getGames}
       pullMoreAction='GAMES_PUSH_MULTIPLE'
       title='Games'
+      navigateTo='game'
     />
   )
 }

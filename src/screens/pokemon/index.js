@@ -12,6 +12,7 @@ const Pokemon = () => {
       pullMore={getPokemon}
       pullMoreAction='POKEMON_PUSH_MULTIPLE'
       title='Pokémon'
+      navigateTo='pokemon'
     />
   )
 }

@@ -1,17 +1,17 @@
-import { Box, Collapsable, ContentArea, FullScreenLoading, Hypertext, Section, Text, Title } from 'components'
-import { getSeperator, textColors } from 'lib'
+import { Collapsable, ContentArea, FullScreenLoading, Hypertext, Section, Text, Title } from 'components'
+import { getSeperator } from 'lib'
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getRegionDetails } from 'services'
 
-const Region = ({  }) => {
+const Region = () => {
   const { id } = useParams(),
     [loading, setLoading] = useState(true),
     [data, setData] = useState(null)
 
   useEffect(() => {
     getDetails()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
 
   async function getDetails() {
@@ -57,7 +57,7 @@ const Region = ({  }) => {
         ))}
       />
 
-      <Section>
+      <Section gap='gap-2'>
         <Text size='text-xl' bold>
           Pokedéxes in this area
         </Text>

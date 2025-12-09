@@ -32,6 +32,9 @@ theme: {
         },
         animation: {
             fadeIn: 'fadeIn 0.3s linear'
+        },
+        boxShadow: {
+            'big-inner': '20px 20px 50px 10px rgba(0,0,0,0.2) inset',
         }
     },
 },
